@@ -1,6 +1,13 @@
 def my_each(array) # put argument(s) here
   # code here
-  array.each do | i |
-    yield i
+  if block_given?
+    i = 0
+    while i < array.length
+      yield array[i]
+      i += 1
+    end
+  else
+    puts "Hey! No block given!"
   end
+  array
 end
